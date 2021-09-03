@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "CMONEY_TECHNOLOGY_Interview"
