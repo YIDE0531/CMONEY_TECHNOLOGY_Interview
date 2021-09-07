@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CMONEY_TECHNOLOGY_Interview</string>
+    <string name="request_api">Request</string>
 </resources>

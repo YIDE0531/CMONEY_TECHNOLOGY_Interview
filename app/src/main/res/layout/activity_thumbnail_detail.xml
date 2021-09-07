@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.nuu.cmoney_technology_interview.model.ThumbnailInfo" />
+        <variable
+            name="viewModel"
+            type="com.nuu.cmoney_technology_interview.viewmodel.ThumbnailDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{()->viewModel.userClicksOnButton()}"
+            tools:context=".ThumbnailDetailActivity">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="2020 Dec. 17"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.nuu.cmoney_technology_interview.util.CustomDetailImageView
+                android:id="@+id/const_himage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imageUrl="@{item.url}"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </com.nuu.cmoney_technology_interview.util.CustomDetailImageView>
+
+            <TextView
+                android:id="@+id/tv_thumbnail_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.title}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/const_himage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_thumbnail_copyright"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.copyright}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/tv_thumbnail_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_thumbnail_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.description}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_thumbnail_copyright"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
